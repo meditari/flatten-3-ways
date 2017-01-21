@@ -5,7 +5,6 @@
     <script type="text/javascript" src="util.js"></script>
     <script type="text/javascript">
         (function() {
-
             var tReduce, tSingleLoop, tNestedLoop;
             var numIterations = 100;
             var input = Array(100).fill(Array(100).fill([1]));
@@ -26,12 +25,9 @@
 
             console.log('Execution time for nested "for" loop flatten method: ' + tNestedLoop+ ' ms');
 
-
             console.log('Single "for" loop is ' + UTIL.percentDecrease(tReduce, tSingleLoop) + '% faster than reduce');
             console.log('Nested "for" loop is ' + UTIL.percentDecrease(tSingleLoop, tNestedLoop) + '% faster than single "for" loop.');
             console.log('Nested "for" loop is ' + UTIL.percentDecrease(tReduce, tNestedLoop) + '% faster than reduce');
-
-            
         }());
     </script>
     </body>
