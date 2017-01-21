@@ -1,0 +1,38 @@
+<html>
+    <body>
+    <h3>Flatten - Served 3 Ways</h3>
+    Please see console for output...
+    <script type="text/javascript" src="util.js"></script>
+    <script type="text/javascript">
+        (function() {
+
+            var tReduce, tSingleLoop, tNestedLoop;
+            var numIterations = 100;
+            var input = Array(100).fill(Array(100).fill([1]));
+
+            console.log('Performing ' + numIterations + ' iterations of reduce based flatten method...');
+
+            tReduce = UTIL.testFunc(input, UTIL.flatten['reduce'], numIterations);
+
+            console.log('Execution time for reduce based flatten method: ' + tReduce + ' ms');
+            console.log('Performing ' + numIterations + ' iterations of single "for" loop flatten method...');
+
+            tSingleLoop = UTIL.testFunc(input, UTIL.flatten['singleLoop'], numIterations);
+
+            console.log('Execution time for single "for" loop flatten method: ' + tSingleLoop + ' ms');
+            console.log('Performing ' + numIterations + ' iterations of nested "for" loop flatten method...');
+
+            tNestedLoop = UTIL.testFunc(input, UTIL.flatten['nestedLoop'], numIterations);
+
+            console.log('Execution time for nested "for" loop flatten method: ' + tNestedLoop+ ' ms');
+
+
+            console.log('Single "for" loop is ' + UTIL.percentDecrease(tReduce, tSingleLoop) + '% faster than reduce');
+            console.log('Nested "for" loop is ' + UTIL.percentDecrease(tSingleLoop, tNestedLoop) + '% faster than single "for" loop.');
+            console.log('Nested "for" loop is ' + UTIL.percentDecrease(tReduce, tNestedLoop) + '% faster than reduce');
+
+            
+        }());
+    </script>
+    </body>
+</html>
